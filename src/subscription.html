@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Subscription App</title>
+  <script src="https://cdn.supabase.io/supabase-js/v1.100.1/supabase.min.js"></script>
+</head>
+<body>
+
+<button id="subscribe">Subscribe for $5/month</button>
+
+<script>
+  const supabaseUrl = 'SUPABASE_URL';
+  const supabaseKey = 'your-supabase-key';
+  const supabase = Supabase.createClient(supabaseUrl, supabaseKey);
+
+  document.getElementById('subscribe').addEventListener('click', async () => {
+    const user = supabase.auth.user();
+
+    if (!user) {
+      // TODO: Handle not logged in
+      alert('not logged in');
+      return;
+    }
+
+    const projectRef = 'qgaehogepxdhqyrilxlt';
+    const functionName = 'create-checkout-session';
+    const functionURL = `https://${projectRef}.supabase.co/rest/v1/${functionName}`;
+
+    // Call your backend to create a Stripe Checkout session
+    const session = await fetch(functionURL, {
+      method: 'POST',
+    }).then(res => res.json());
+
+    const result = await stripe.redirectToCheckout({
+      sessionId: session.id,
+    });
+
+    if (result.error) {
+      // Handle error
+    }
+  });
+</script>
+</body>
+</html>
