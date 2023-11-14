@@ -4,7 +4,7 @@ import MenuBar from "./components/MenuBar.vue";
 </script>
 
 <template>
-  <div class="container mx-auto">
+  <div class="container max-w-5xl mx-auto">
     <header class="text-center p-4">
       <h1 class="text-2xl font-bold">ActivityWatch</h1>
       <MenuBar />
