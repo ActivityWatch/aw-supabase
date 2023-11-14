@@ -1,6 +1,8 @@
 aw-supabase
 ===========
 
+[![Build](https://github.com/ActivityWatch/aw-supabase/actions/workflows/build.yml/badge.svg)](https://github.com/ActivityWatch/aw-supabase/actions/workflows/build.yml)
+
 A work-in-progress MVP for ActivityWatch subscriptions and more.
 
 ## Development
