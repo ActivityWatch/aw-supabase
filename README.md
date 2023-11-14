@@ -3,7 +3,11 @@ aw-supabase
 
 [![Build](https://github.com/ActivityWatch/aw-supabase/actions/workflows/build.yml/badge.svg)](https://github.com/ActivityWatch/aw-supabase/actions/workflows/build.yml)
 
-A work-in-progress MVP for ActivityWatch subscriptions and more.
+A work-in-progress MVP for ActivityWatch subscriptions, leaderboards, and more.
+
+Uses Vue + Vite + Tailwind + Supabase.
+
+Uses Vitest for unittests, and playwright for e2e tests.
 
 ## Development
 
@@ -18,6 +22,12 @@ npx supabase start
 npm start
 ```
 
+
+## Previous attempts
+
+I made a previous attempt at creating a leaderboard with Firebase [here](https://github.com/ActivityWatch/aw-leaderboard-firebase).
+
+I also wrote a leaderboard server in Rust [here](https://github.com/ActivityWatch/aw-leaderboard).
 
 ---
 
