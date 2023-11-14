@@ -39,7 +39,8 @@ jobs:
       - name: Build
         run: npm run build
       - name: Run e2e tests
-        run: npx playwright test
+        # needs HOME=/root set due to https://github.com/microsoft/playwright/issues/6500#issuecomment-838515115
+        run: env HOME=/root npx playwright test
 
   lint:
     runs-on: ubuntu-latest
