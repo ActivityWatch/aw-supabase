@@ -13,5 +13,8 @@ import { RouterLink } from "vue-router";
     <div class="rounded border px-2 py-1">
       <RouterLink to="/settings">Settings</RouterLink>
     </div>
+    <div class="rounded border px-2 py-1">
+      <RouterLink to="/account">Account</RouterLink>
+    </div>
   </nav>
 </template>
