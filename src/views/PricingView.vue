@@ -65,14 +65,19 @@ main
                 tr
                     th Recognition
                     td None
-                    td #[a(href="https://activitywatch.net/supporters/") Website]
-                    td #[a(href="https://activitywatch.net/supporters/") Website]
-                    td #[a(href="https://activitywatch.net/supporters/") Website]
+                    td #[a(href="https://activitywatch.net/sponsors/") Website]
+                    td #[a(href="https://activitywatch.net/sponsors/") Website]
+                    td #[a(href="https://activitywatch.net/sponsors/") Website]
 
     div.mt-8.max-w-xl.mx-auto
         p
             b Note
         p The subscriptions are not yet available, but will be soon. If you want to support the project in the meantime, you can do so by #[a(href="https://activitywatch.net/donate/") donating].
+
+    div.mt-8.max-w-xl.mx-auto
+        p
+            b Note
+        p Subscriptions are offered by Superuser Labs Lund AB, a company founded by Erik Bjäreholt, the lead developer of ActivityWatch. The prices are VAT inclusive.
 </template>
 
 <style lang="scss" scoped>

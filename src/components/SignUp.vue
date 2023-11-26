@@ -19,8 +19,14 @@ const signUp = async () => {
 div.container.max-w-md
   div.flex.flex-col.items-center.justify-between
     h1.text-2xl.font-bold Sign Up
-    input(v-model="email", type="email", placeholder="Email").rounded.border.m-2.p-2
-    input(v-model="password", type="password", placeholder="Password").rounded.border.m-2.p-2
+    input(
+v-model="email",
+type="email",
+placeholder="Email").rounded.border.m-2.p-2
+    input(
+v-model="password",
+type="password",
+placeholder="Password").rounded.border.m-2.p-2
     button(@click="signUp").border.rounded.px-2.py-1 Sign Up
     hr
     router-link(to="/forgot-password").opacity-30 Forgot Password

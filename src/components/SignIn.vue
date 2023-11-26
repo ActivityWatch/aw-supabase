@@ -19,7 +19,13 @@ const signIn = async () => {
 div.container.mx-auto.max-w-md
   div.flex.flex-col.items-center.justify-between
     h1.text-2xl.font-bold Sign In
-    input(v-model="email", type="email", placeholder="Email").rounded.border.m-2.p-2
-    input(v-model="password", type="password", placeholder="Password").rounded.border.m-2.p-2
+    input(
+v-model="email",
+type="email",
+placeholder="Email").rounded.border.m-2.p-2
+    input(
+v-model="password",
+type="password",
+placeholder="Password").rounded.border.m-2.p-2
     button(@click="signIn").rounded.border.px-2.py-1 Sign In
 </template>

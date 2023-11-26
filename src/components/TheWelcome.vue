@@ -9,66 +9,44 @@ import SupportIcon from './icons/IconSupport.vue'
 
 <template lang="pug">
 WelcomeItem
-  template(v-slot:icon)
-    DocumentationIcon
-  template(v-slot:heading) Documentation
-  | Vue’s
-  a(href="https://vuejs.org/", target="_blank", rel="noopener") official documentation
-  | provides you with all information you need to get started.
-
-WelcomeItem
-  template(v-slot:icon)
-    ToolingIcon
-  template(v-slot:heading) Tooling
-  | This project is served and bundled with
-  a(href="https://vitejs.dev/guide/features.html", target="_blank", rel="noopener") Vite
-  | . The recommended IDE setup is
-  a(href="https://code.visualstudio.com/", target="_blank", rel="noopener") VSCode
-  | +
-  a(href="https://github.com/johnsoncodehk/volar", target="_blank", rel="noopener") Volar
-  | . If you need to test your components and web pages, check out
-  a(href="https://www.cypress.io/", target="_blank", rel="noopener") Cypress
-  | and
-  a(href="https://on.cypress.io/component", target="_blank", rel="noopener") Cypress Component Testing
-  | .
-  br
-  | More instructions are available in
-  code README.md
-
-WelcomeItem
-  template(v-slot:icon)
-    EcosystemIcon
-  template(v-slot:heading) Ecosystem
-  | Get official tools and libraries for your project:
-  a(href="https://pinia.vuejs.org/", target="_blank", rel="noopener") Pinia
-  | ,
-  a(href="https://router.vuejs.org/", target="_blank", rel="noopener") Vue Router
-  | ,
-  a(href="https://test-utils.vuejs.org/", target="_blank", rel="noopener") Vue Test Utils
-  | , and
-  a(href="https://github.com/vuejs/devtools", target="_blank", rel="noopener") Vue Dev Tools
-  | . If you need more resources, we suggest paying
-  a(href="https://github.com/vuejs/awesome-vue", target="_blank", rel="noopener") Awesome Vue
-  | a visit.
-
-WelcomeItem
-  template(v-slot:icon)
-    CommunityIcon
-  template(v-slot:heading) Community
-  | Got stuck? Ask your question on
-  a(href="https://chat.vuejs.org", target="_blank", rel="noopener") Vue Land
-  | , our official Discord server, or
-  a(href="https://stackoverflow.com/questions/tagged/vue.js", target="_blank", rel="noopener") StackOverflow
-  | . You should also subscribe to
-  a(href="https://news.vuejs.org", target="_blank", rel="noopener") our mailing list
-  | and follow the official
-  a(href="https://twitter.com/vuejs", target="_blank", rel="noopener") @vuejs
-  | twitter account for latest news in the Vue world.
-
-WelcomeItem
-  template(v-slot:icon)
+  template(#icon)
     SupportIcon
-  template(v-slot:heading) Support Vue
-  | As an independent project, Vue relies on community backing for its sustainability. You can help us by
-  a(href="https://vuejs.org/sponsor/", target="_blank", rel="noopener") becoming a sponsor
+  template(#heading) Support ActivityWatch
+  | As a free and open-source project, ActivityWatch relies on users supporting it with a subscription. You can help us by
+  a(
+href="/pricing",
+target="_blank",
+rel="noopener") subscribing to a plan
+    | , or by
+    a(
+href="https://activitywatch.net/donate",
+target="_blank",
+rel="noopener") donating.
+
+WelcomeItem
+  template(#icon)
+    ToolingIcon
+  template(#heading) Tooling
+
+WelcomeItem
+  template(#icon)
+    DocumentationIcon
+  template(#heading) Documentation
+
+WelcomeItem
+  template(#icon)
+    EcosystemIcon
+  template(#heading) Ecosystem
+
+WelcomeItem
+  template(#icon)
+    CommunityIcon
+  template(#heading) Community
+  ul.list-unstyled
+      li
+          a.link(href="https://forum.activitywatch.net")
+              | Forum
+      li
+          a.link(href="")
+              | Discord
 </template>
