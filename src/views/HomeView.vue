@@ -4,12 +4,10 @@ import SignIn from '../components/SignIn.vue'
 import SignUp from '../components/SignUp.vue'
 </script>
 
-<template>
-  <main>
-    <TheWelcome />
-    <div class="flex">
-      <SignIn />
-      <SignUp />
-    </div>
-  </main>
+<template lang="pug">
+main
+  TheWelcome
+  div.flex
+    SignIn
+    SignUp
 </template>

@@ -15,20 +15,13 @@ const signUp = async () => {
 }
 </script>
 
-<template>
-  <div class="container max-w-md">
-    <div class="flex flex-col items-center justify-between">
-      <h1 class="text-2xl font-bold">Sign Up</h1>
-      <input v-model="email" type="email" placeholder="Email" class="rounded border m-2 p-2" />
-      <input
-        v-model="password"
-        type="password"
-        placeholder="Password"
-        class="rounded border m-2 p-2"
-      />
-      <button @click="signUp" class="border rounded px-2 py-1">Sign Up</button>
-      <hr />
-      <router-link to="/forgot-password" class="opacity-30">Forgot Password</router-link>
-    </div>
-  </div>
+<template lang="pug">
+div.container.max-w-md
+  div.flex.flex-col.items-center.justify-between
+    h1.text-2xl.font-bold Sign Up
+    input(v-model="email", type="email", placeholder="Email").rounded.border.m-2.p-2
+    input(v-model="password", type="password", placeholder="Password").rounded.border.m-2.p-2
+    button(@click="signUp").border.rounded.px-2.py-1 Sign Up
+    hr
+    router-link(to="/forgot-password").opacity-30 Forgot Password
 </template>

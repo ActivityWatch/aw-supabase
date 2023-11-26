@@ -3,14 +3,13 @@ import { RouterView } from 'vue-router'
 import MenuBar from './components/MenuBar.vue'
 </script>
 
-<template>
-  <div class="container max-w-5xl mx-auto">
-    <header class="text-center p-4">
-      <h1 class="text-2xl font-bold">ActivityWatch</h1>
-      <MenuBar />
-    </header>
-    <main>
-      <RouterView />
-    </main>
-  </div>
+<template lang="pug">
+div.container.max-w-5xl.mx-auto
+    header
+        MenuBar
+    main.px-4
+        RouterView
+    footer.text-center.p-4
+        p ActivityWatch
+        p Website operated by #[a(href="https://superuserlabs.org") Superuser Labs]
 </template>

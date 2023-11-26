@@ -15,18 +15,11 @@ const signIn = async () => {
 }
 </script>
 
-<template>
-  <div class="container mx-auto max-w-md">
-    <div class="flex flex-col items-center justify-between">
-      <h1 class="text-2xl font-bold">Sign In</h1>
-      <input v-model="email" type="email" placeholder="Email" class="rounded border m-2 p-2" />
-      <input
-        v-model="password"
-        type="password"
-        placeholder="Password"
-        class="rounded border m-2 p-2"
-      />
-      <button @click="signIn" class="rounded border px-2 py-1">Sign In</button>
-    </div>
-  </div>
+<template lang="pug">
+div.container.mx-auto.max-w-md
+  div.flex.flex-col.items-center.justify-between
+    h1.text-2xl.font-bold Sign In
+    input(v-model="email", type="email", placeholder="Email").rounded.border.m-2.p-2
+    input(v-model="password", type="password", placeholder="Password").rounded.border.m-2.p-2
+    button(@click="signIn").rounded.border.px-2.py-1 Sign In
 </template>

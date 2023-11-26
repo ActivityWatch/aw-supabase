@@ -1,8 +1,11 @@
-run:
-	true
+dev:
+	npm run dev
+
+build:
+	npm run build
 
 serve:
 	python3 -m http.server --directory src/
 
 test:
-	true
+	npm run test:unit
