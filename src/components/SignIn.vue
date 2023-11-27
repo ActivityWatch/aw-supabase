@@ -1,17 +1,20 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { supabase } from '@/supabase/init.ts' // Import your Supabase instance
+import { useAuthStore } from '../stores/auth.ts'
 
+const auth = useAuthStore()
 const email = ref('')
 const password = ref('')
+const errorMessage = ref('')
 
 const signIn = async () => {
-  const { user, error } = await supabase.auth.signIn({
-    email: email.value,
-    password: password.value
-  })
-  if (error) console.error('Error signing in:', error)
-  else console.log('User signed in:', user)
+  try {
+    await auth.signIn(email.value, password.value)
+    console.log('User signed in:', auth.user)
+  } catch (error) {
+    console.error('Error signing in:', error)
+    errorMessage.value = error.message
+  }
 }
 </script>
 
@@ -28,4 +31,5 @@ v-model="password",
 type="password",
 placeholder="Password").rounded.border.m-2.p-2
     button(@click="signIn").rounded.border.px-2.py-1 Sign In
+    p.text-red-500(v-if="errorMessage") {{ errorMessage }}
 </template>

@@ -1,17 +1,23 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { supabase } from '@/supabase/init' // Import your Supabase instance
+import { useAuthStore } from '../stores/auth.ts'
+import router from '../router/index.ts'
 
+const auth = useAuthStore()
 const email = ref('')
 const password = ref('')
+const errorMessage = ref('')
 
 const signUp = async () => {
-  const { user, error } = await supabase.auth.signUp({
-    email: email.value,
-    password: password.value
-  })
-  if (error) console.error('Error signing up:', error)
-  else console.log('User signed up:', user)
+  try {
+    await auth.signUp(email.value, password.value)
+    console.log('User signed up:', auth.user)
+    // Redirect to home page after successful sign up
+    router.push({ path: '/' })
+  } catch (error) {
+    console.error('Error signing up:', error)
+    errorMessage.value = error.message
+  }
 }
 </script>
 
@@ -28,6 +34,7 @@ v-model="password",
 type="password",
 placeholder="Password").rounded.border.m-2.p-2
     button(@click="signUp").border.rounded.px-2.py-1 Sign Up
+    p.text-red-500(v-if="errorMessage") {{ errorMessage }}
     hr
-    router-link(to="/forgot-password").opacity-30 Forgot Password
+    router-link(to="/forgot-password").opacity-30 Forgot password?
 </template>
