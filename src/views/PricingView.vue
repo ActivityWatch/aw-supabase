@@ -22,7 +22,7 @@ main
         p.pt-4
             | #[i Therefore], we offer a few different pricing plans, and suggest you support the project if you have the means.
 
-    div.border.border-gray-400.rounded-lg.shadow-md.mt-8.p-4
+    div.border.border-gray-400.rounded-lg.shadow-md.mt-8.p-5
         table.table-auto.border-collapse.w-full
             thead
                 tr.text-2xl.font-bold
@@ -33,23 +33,28 @@ main
                     th Believer
             tbody.text-center
                 tr
+                    th
+                    //th Description
+                    //td For everyone, forever.
+                    td 
+                      div.inline-block.text-green-900.font-bold.px-2.py-1.bg-green-200.rounded-xl
+                        | Most popular!
+                    td.font-bold.text-slate-700
+                      | For happy users
+                    td.font-bold.text-slate-700
+                      | For professionals
                     td
-                    td Most popular!
-                    td
-                    td
-                    td Best value!
+                      div.inline-block.text-yellow-900.font-bold.px-2.py-1.bg-yellow-200.rounded-xl
+                        | Best value!
                 tr
-                    th Description
-                    td For everyone, forever.
-                    td For generous users.
-                    td For professionals.
-                    td For believers.
+                    // spacing
+                    td
                 tr
                     th Price
                     td Free
                     td 5 USD / month
-                    td 15 USD / month
-                    td 100 USD / year
+                    td 20 USD / month
+                    td 50 USD / year
                 tr
                     th Features
                     td Everything
@@ -68,6 +73,31 @@ main
                     td #[a(href="https://activitywatch.net/sponsors/") Website]
                     td #[a(href="https://activitywatch.net/sponsors/") Website]
                     td #[a(href="https://activitywatch.net/sponsors/") Website]
+                tr
+                    // spacing
+                    td
+                tr
+                    // call to action
+                    // TODO: update with stripe checkout
+                    td
+                    td
+                        div.inline-block.px-4.py-2.bg-slate-100.rounded-xl.shadow.text-sm.text-slate-600
+                            | You already have it!
+                    td
+                      a(href="https://activitywatch.net/donate/")
+                        div.inline-block.px-4.py-2.border.border-green-400.bg-green-200.rounded-xl.shadow.ring-green-500(class="hover:ring-2")
+                          | Subscribe
+                    td
+                      a(href="https://activitywatch.net/donate/")
+                        div.inline-block.px-4.py-2.border.border-yellow-500.bg-yellow-300.rounded-xl.shadow.ring-yellow-500(class="hover:ring-2")
+                          | Subscribe
+                    td
+                      a(href="https://activitywatch.net/donate/")
+                        div.inline-block.px-4.py-2.border.border-slate-500.bg-slate-700.rounded-xl.shadow.ring-slate-800.text-white.font-bold(class="hover:ring")
+                          | Believe
+
+    div.mt-8.max-w-xl.mx-auto.text-sm.text-gray-500.text-center
+        | The prices include VAT for EU customers.
 
     div.mt-8.max-w-xl.mx-auto
         p
@@ -77,13 +107,14 @@ main
     div.mt-8.max-w-xl.mx-auto
         p
             b Note
-        p Subscriptions are offered by Superuser Labs Lund AB, a company founded by Erik Bjäreholt, the lead developer of ActivityWatch. The prices are VAT inclusive.
+        p Subscriptions are offered by Superuser Labs Lund AB, a company founded by Erik Bjäreholt, the lead developer of ActivityWatch. To learn more about the company, visit #[a(href="https://superuserlabs.org/" target="_blank") superuserlabs.org].
+
 </template>
 
 <style lang="scss" scoped>
 tr {
   td {
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1rem;
   }
 }
 tbody {
