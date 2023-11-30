@@ -1,10 +1,11 @@
 import { ref, computed } from 'vue'
+import type { Ref } from 'vue'
 import { defineStore } from 'pinia'
 import { supabase } from '../utils/supabase'
 import type { User } from '@supabase/supabase-js'
 
 export const useAuthStore = defineStore('auth', () => {
-  const user = ref<User | null>(null)
+  const user: Ref<User | null> = ref(null)
 
   const isLoggedIn = computed(() => !!user.value)
 
@@ -26,6 +27,10 @@ export const useAuthStore = defineStore('auth', () => {
 
   function signOut() {
     supabase.auth.signOut()
+    _signedOut()
+  }
+
+  function _signedOut() {
     user.value = null
   }
 
@@ -39,6 +44,15 @@ export const useAuthStore = defineStore('auth', () => {
     user.value = session?.user ?? null
   }
 
+  supabase.auth.onAuthStateChange(async (event, session) => {
+    console.debug('auth state change', { event: event, session: session })
+    if (event === 'SIGNED_IN' || event === 'USER_UPDATED') {
+      fetchUser()
+    } else if (event === 'SIGNED_OUT') {
+      user.value = null
+    }
+  })
+
   return {
     user,
     isLoggedIn,
@@ -46,16 +60,5 @@ export const useAuthStore = defineStore('auth', () => {
     signUp,
     signOut,
     fetchUser
-  }
-})
-
-supabase.auth.onAuthStateChange(async (event, _session) => {
-  console.log('auth state change')
-  console.log('event', event)
-  //console.log('session', _session)
-  if (event === 'SIGNED_IN' || event === 'USER_UPDATED') {
-    useAuthStore().fetchUser()
-  } else if (event === 'SIGNED_OUT') {
-    useAuthStore().user.value = null
   }
 })
