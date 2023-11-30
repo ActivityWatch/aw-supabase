@@ -1,8 +1,13 @@
 import { defineStore } from 'pinia'
-import { supabase } from '../supabase/init.ts'
+import { supabase } from '../supabase/init'
+import type { User } from '@supabase/supabase-js'
+
+interface State {
+  user: User | null
+}
 
 export const useAuthStore = defineStore('auth', {
-  state: () => ({
+  state: (): State => ({
     user: null
   }),
   actions: {
@@ -35,7 +40,7 @@ export const useAuthStore = defineStore('auth', {
     }
   },
   getters: {
-    isLoggedIn() {
+    isLoggedIn(this: State) {
       return !!this.user
     }
   }

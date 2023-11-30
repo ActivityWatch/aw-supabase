@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useAuthStore } from '../stores/auth.ts'
-import router from '../router/index.ts'
+import { useAuthStore } from '../stores/auth'
+import router from '../router/index'
 
 const auth = useAuthStore()
 const email = ref('')
@@ -14,7 +14,7 @@ const signUp = async () => {
     console.log('User signed up:', auth.user)
     // Redirect to home page after successful sign up
     router.push({ path: '/' })
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error signing up:', error)
     errorMessage.value = error.message
   }

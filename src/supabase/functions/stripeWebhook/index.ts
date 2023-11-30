@@ -1,16 +1,17 @@
-export default async (req, res) => {
-  const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
-  const { createClient } = require('@supabase/supabase-js')
-  const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY)
+import { supabase, stripe } from '../../init'
 
-  const sig = req.headers['stripe-signature']
+const STRIPE_WEBHOOK_SECRET = import.meta.env.VITE_STRIPE_WEBHOOK_SECRET
+
+export default async (req: Request): Promise<Response> => {
+  const body = await req.text()
+  const sig = req.headers.get('stripe-signature')!
+
   let event
-
   try {
-    event = stripe.webhooks.constructEvent(req.rawBody, sig, process.env.STRIPE_WEBHOOK_SECRET)
-  } catch (err) {
+    event = await stripe.webhooks.constructEventAsync(body, sig, STRIPE_WEBHOOK_SECRET)
+  } catch (err: any) {
     // Invalid signature, return error response
-    return res.status(400).send(`Webhook Error: ${err.message}`)
+    return new Response(`Webhook Error: ${err.message}`, { status: 400 })
   }
 
   // Handle the event
@@ -24,13 +25,15 @@ export default async (req, res) => {
 
     if (error) {
       console.error('Error updating subscription:', error)
-      return res.status(500).send('Internal Server Error')
+      return new Response('Internal Server Error', { status: 500 })
     }
 
     // Successful response
-    return res.status(200).send('Webhook received and processed successfully')
+    return new Response('Webhook received and processed successfully', {
+      status: 200
+    })
   } else {
     // Unexpected event type
-    return res.status(400).send(`Unhandled event type ${event.type}`)
+    return new Response(`Unhandled event type ${event.type}`, { status: 400 })
   }
 }

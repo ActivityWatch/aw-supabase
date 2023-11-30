@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useAuthStore } from '../stores/auth.ts'
+import { useAuthStore } from '../stores/auth'
 
 const auth = useAuthStore()
 const email = ref('')
@@ -11,7 +11,7 @@ const signIn = async () => {
   try {
     await auth.signIn(email.value, password.value)
     console.log('User signed in:', auth.user)
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error signing in:', error)
     errorMessage.value = error.message
   }

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import SignIn from '../components/SignIn.vue'
 import SignUp from '../components/SignUp.vue'
-import { useAuthStore } from '../stores/auth.ts'
+import { useAuthStore } from '../stores/auth'
 
 const auth = useAuthStore()
 </script>

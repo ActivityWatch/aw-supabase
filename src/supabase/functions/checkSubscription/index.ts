@@ -1,12 +1,14 @@
-const { createClient } = require('@supabase/supabase-js')
-const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
-const stripe = require('stripe')(STRIPE_SECRET_KEY)
+import type { Stripe } from 'stripe'
+import { supabase, stripe } from '../../init'
 
-module.exports = async (req, res) => {
-  const userId = req.query.userId || req.body.userId
+export default async (req: Request): Promise<Response> => {
+  const query = await req.json()
+  const userId = query.userId
 
   if (!userId) {
-    return res.status(400).send('User ID is required')
+    return new Response('User ID is required', {
+      status: 400
+    })
   }
 
   // Fetch subscription info from Supabase
@@ -16,17 +18,23 @@ module.exports = async (req, res) => {
     .eq('user_id', userId)
 
   if (error || !data || !data.length) {
-    return res.status(404).send('Subscription not found')
+    return new Response('Subscription not found', {
+      status: 404
+    })
   }
 
   const subscriptionId = data[0].subscription_id
 
   // Validate subscription with Stripe
-  const subscription = await stripe.subscriptions.retrieve(subscriptionId)
+  const subscription = (await stripe.subscriptions.retrieve(subscriptionId)) as Stripe.Subscription
 
   if (!subscription || subscription.status !== 'active') {
-    return res.status(403).send('Subscription is not active')
+    return new Response('Subscription is not active', {
+      status: 403
+    })
   }
 
-  return res.status(200).json({ status: 'active' })
+  return new Response(JSON.stringify(subscription), {
+    status: 200
+  })
 }
