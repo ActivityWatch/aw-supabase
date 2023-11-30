@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { supabase } from '../supabase/init'
+import { supabase } from '../supabase'
 import type { User } from '@supabase/supabase-js'
 
 interface State {

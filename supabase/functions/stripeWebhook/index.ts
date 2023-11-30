@@ -1,8 +1,8 @@
-import { supabase, stripe } from '../../init'
+import { supabase, stripe } from '../../init.ts'
 
 const STRIPE_WEBHOOK_SECRET = import.meta.env.VITE_STRIPE_WEBHOOK_SECRET
 
-export default async (req: Request): Promise<Response> => {
+Deno.serve(async (req: Request): Promise<Response> => {
   const body = await req.text()
   const sig = req.headers.get('stripe-signature')!
 
@@ -36,4 +36,4 @@ export default async (req: Request): Promise<Response> => {
     // Unexpected event type
     return new Response(`Unhandled event type ${event.type}`, { status: 400 })
   }
-}
+})

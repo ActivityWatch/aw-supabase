@@ -1,7 +1,7 @@
 import type { Stripe } from 'stripe'
-import { supabase, stripe } from '../../init'
+import { supabase, stripe } from '../../init.ts'
 
-export default async (req: Request): Promise<Response> => {
+Deno.serve(async (req: Request): Promise<Response> => {
   const query = await req.json()
   const userId = query.userId
 
@@ -37,4 +37,4 @@ export default async (req: Request): Promise<Response> => {
   return new Response(JSON.stringify(subscription), {
     status: 200
   })
-}
+})
