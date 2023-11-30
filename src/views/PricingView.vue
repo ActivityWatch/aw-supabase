@@ -81,19 +81,19 @@ main
                     // TODO: update with stripe checkout
                     td
                     td
-                        div.inline-block.px-4.py-2.bg-slate-100.rounded-xl.shadow.text-sm.text-slate-600
-                            | You already have it!
+                      div.btn.btn-sm.btn-disabled.inline-block
+                        | You already have it!
                     td
                       a(href="https://activitywatch.net/donate/")
-                        div.inline-block.px-4.py-2.border.border-green-400.bg-green-200.rounded-xl.shadow.ring-green-500(class="hover:ring-2")
+                        div.btn.btn-green.inline-block
                           | Subscribe
                     td
                       a(href="https://activitywatch.net/donate/")
-                        div.inline-block.px-4.py-2.border.border-yellow-500.bg-yellow-300.rounded-xl.shadow.ring-yellow-500(class="hover:ring-2")
+                        div.btn.btn-yellow.inline-block
                           | Subscribe
                     td
                       a(href="https://activitywatch.net/donate/")
-                        div.inline-block.px-4.py-2.border.border-slate-500.bg-slate-700.rounded-xl.shadow.ring-slate-800.text-white.font-bold(class="hover:ring")
+                        div.btn.btn-slate.inline-block
                           | Believe
 
     div.mt-8.max-w-xl.mx-auto.text-sm.text-gray-500.text-center
@@ -102,7 +102,7 @@ main
     div.mt-8.max-w-xl.mx-auto
         p
             b Note
-        p The subscriptions are not yet available, but will be soon. If you want to support the project in the meantime, you can do so by #[a(href="https://activitywatch.net/donate/") donating].
+        p The subscriptions are not yet available. If you want to support the project in the meantime, you can do so by #[a(href="https://activitywatch.net/donate/") donating].
 
     div.mt-8.max-w-xl.mx-auto
         p

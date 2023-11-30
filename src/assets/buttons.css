@@ -1,0 +1,35 @@
+.btn {
+  @apply font-bold px-4 py-2 rounded-lg border hover:ring-2 text-white bg-gray-500
+}
+
+/* states */
+.btn-disabled {
+  @apply font-bold px-4 py-2 rounded-lg border text-gray-600 bg-gray-300 cursor-not-allowed
+}
+
+/* sizes */
+.btn-sm {
+  @apply text-sm px-3 py-1 rounded
+}
+
+/* colors */
+.btn-primary {
+  @apply bg-blue-500 hover:bg-blue-700 border-blue-500 ring-blue-500
+}
+
+.btn-white {
+  @apply bg-white hover:bg-gray-100 border-gray-500 ring-gray-500 text-gray-700
+}
+
+.btn-slate {
+  @apply bg-gray-700 hover:bg-gray-900 border-gray-500 ring-gray-500
+}
+
+.btn-green {
+  @apply bg-green-500 hover:bg-green-600 border-green-500 ring-green-500
+}
+
+.btn-yellow {
+  @apply bg-yellow-400 hover:bg-yellow-600 border-yellow-500 ring-yellow-500
+}
+
