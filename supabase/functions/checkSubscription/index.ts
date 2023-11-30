@@ -1,5 +1,6 @@
 import type { Stripe } from 'stripe'
-import { supabase, stripe } from '../../init.ts'
+import { supabase } from '../_shared/supabaseClient.ts'
+import { stripe } from '../_shared/stripe.ts'
 
 Deno.serve(async (req: Request): Promise<Response> => {
   const query = await req.json()

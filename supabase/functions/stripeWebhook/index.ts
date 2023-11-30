@@ -1,4 +1,5 @@
-import { supabase, stripe } from '../../init.ts'
+import { supabase } from '../_shared/supabaseClient'
+import { stripe } from '../_shared/stripe'
 
 const STRIPE_WEBHOOK_SECRET = import.meta.env.VITE_STRIPE_WEBHOOK_SECRET
 

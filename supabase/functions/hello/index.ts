@@ -1,12 +1,21 @@
+import { corsHeaders } from '../_shared/cors.ts'
+
 console.log('Hello from Functions!')
 
 Deno.serve(async (req) => {
+  if (req.method === 'OPTIONS') {
+    return new Response('ok', { headers: corsHeaders })
+  }
+
   const { name } = await req.json()
   const data = {
     message: `Hello ${name}!`
   }
 
-  return new Response(JSON.stringify(data), { headers: { 'Content-Type': 'application/json' } })
+  console.log('CORS', corsHeaders)
+  return new Response(JSON.stringify(data), {
+    headers: { 'Content-Type': 'application/json', ...corsHeaders }
+  })
 })
 
 /* To invoke locally:

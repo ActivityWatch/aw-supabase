@@ -1,4 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useAuthStore } from '@/stores/auth'
+
+const auth = useAuthStore()
+</script>
 
 <template lang="pug">
 main
@@ -39,9 +43,9 @@ main
                     td 
                       div.inline-block.text-green-900.font-bold.px-2.py-1.bg-green-200.rounded-xl
                         | Most popular!
-                    td.font-bold.text-slate-700
+                    td.font-bold.dimmed
                       | For happy users
-                    td.font-bold.text-slate-700
+                    td.font-bold.dimmed
                       | For professionals
                     td
                       div.inline-block.text-yellow-900.font-bold.px-2.py-1.bg-yellow-200.rounded-xl
