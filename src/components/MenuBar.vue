@@ -5,7 +5,8 @@ import { RouterLink } from 'vue-router'
 <template lang="pug">
 nav.py-4
   div.text-2xl.font-bold.text-center
-    RouterLink(to="/") ActivityWatch
+    RouterLink(to="/")
+      h1 ActivityWatch
   div.flex.justify-center.space-x-4.mt-4
     RouterLink(to="/about")
       div.btn.btn-white.btn-sm
