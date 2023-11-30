@@ -4,7 +4,8 @@ import MenuBar from './components/MenuBar.vue'
 </script>
 
 <template lang="pug">
-div.max-w-5xl.mx-auto.h-screen.flex.flex-col
+div(class="dark:bg-gray-900 dark:text-gray-100")
+  div.max-w-5xl.mx-auto.h-screen.flex.flex-col
     header
         MenuBar
     main.px-4

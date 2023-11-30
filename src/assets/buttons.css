@@ -1,5 +1,5 @@
 .btn {
-  @apply font-bold px-4 py-2 rounded-lg border hover:ring-2 text-white bg-gray-500
+  @apply font-bold px-4 py-2 rounded-lg border hover:ring-2 text-white bg-gray-500 hover:bg-gray-600
 }
 
 /* states */
@@ -14,11 +14,16 @@
 
 /* colors */
 .btn-primary {
-  @apply bg-blue-500 hover:bg-blue-700 border-blue-500 ring-blue-500
+  @apply bg-blue-500 
+         hover:bg-blue-700
+         border-blue-500 ring-blue-500
 }
 
 .btn-white {
-  @apply bg-white hover:bg-gray-100 border-gray-500 ring-gray-500 text-gray-700
+  @apply bg-white border-gray-500 ring-gray-500 text-gray-700 
+         hover:bg-gray-100
+         dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100
+         dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:hover:text-gray-100
 }
 
 .btn-slate {

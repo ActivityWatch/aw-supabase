@@ -4,13 +4,16 @@ import { RouterLink } from 'vue-router'
 
 <template lang="pug">
 nav.py-4
-  div.text-2xl.font-bold.text-center.text-gray-800
+  div.text-2xl.font-bold.text-center
     RouterLink(to="/") ActivityWatch
   div.flex.justify-center.space-x-4.mt-4
-    div.btn.btn-white.btn-sm
-      RouterLink(to="/about") About
-    div.btn.btn-white.btn-sm
-      RouterLink(to="/pricing") Pricing
-    div.btn.btn-white.btn-sm
-      RouterLink(to="/account") Account
+    RouterLink(to="/about")
+      div.btn.btn-white.btn-sm
+        | About
+    RouterLink(to="/pricing")
+      div.btn.btn-white.btn-sm
+        | Pricing
+    RouterLink(to="/account") 
+      div.btn.btn-white.btn-sm
+        | Account
 </template>
